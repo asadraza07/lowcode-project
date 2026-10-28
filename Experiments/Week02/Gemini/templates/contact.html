@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .error-message {
+            color: #d9534f;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        .has-error input, .has-error textarea {
+            border-color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+
+    <form action="{{ url_for('contact') }}" method="POST" novalidate>
+        <div class="form-group {% if errors.name %}has-error{% endif %}">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="{{ form_data.name|default('') }}">
+            {% if errors.name %}
+                <div class="error-message">{{ errors.name }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group {% if errors.email %}has-error{% endif %}">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="{{ form_data.email|default('') }}">
+            {% if errors.email %}
+                <div class="error-message">{{ errors.email }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group {% if errors.message %}has-error{% endif %}">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5">{{ form_data.message|default('') }}</textarea>
+            {% if errors.message %}
+                <div class="error-message">{{ errors.message }}</div>
+            {% endif %}
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
