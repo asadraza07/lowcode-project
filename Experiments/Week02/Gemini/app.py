@@ -1,7 +1,7 @@
 import re
 from flask import Flask, render_template, request
 
-# 1. Initialize the app first!
+# Initialize the Flask app FIRST
 app = Flask(__name__)
 
 # Simple standard-library email validation pattern
@@ -26,7 +26,7 @@ def validate_contact_form(data):
 
     return errors
 
-# 2. Add your contact route after 'app' is created
+# Routes come AFTER 'app' is initialized
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
@@ -44,6 +44,5 @@ def contact():
 
     return render_template("contact.html", errors={}, form_data={})
 
-# 3. Include this at the very bottom so python app.py works
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000)
