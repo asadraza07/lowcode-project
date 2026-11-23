@@ -1,18 +1,20 @@
 # MITS School Daily Diary — Specification
 
-Version 1 · Week 3 · Author: Asad Raza
+Version 2 · Week 3 · Author: Asad Raza
 
 ## Purpose
-[YOU WRITE — two sentences in your own words. Sentence 1: who it is for and what it does. Sentence 2: the problem it fixes today.]
+This app is for teachers and parents at MITS, a primary school in Dublin. Teachers use it to send homework, attendance and diary notes, and parents use it to read the daily diary and leave a short comment.
+Today, parents find out about homework and absences by the teacher posting in a WhatsApp group, which is a problem because the teacher can forget to post it.
 
 ## Stakeholder
-[YOU WRITE — a real person or organisation other than you who cares whether this is solved, e.g. a teacher, principal or tuition centre you know, and why they care.]
+A class teacher at MITS, because teachers can forget to post homework and absences in the WhatsApp group.
 
 ## Success criteria (set before building)
-[YOU WRITE — 3 to 5 measurable statements you will test against at the end. Examples of the style, not to copy:
-- A teacher can post a day's homework for a class in under 1 minute.
-- A parent can see today's homework and attendance for their child in 2 clicks or fewer after logging in.
-- A parent cannot see any other child's diary.]
+1. A teacher can post a day's homework for a class in under 5 minutes.
+2. A teacher can record attendance for a class of 30 pupils in under 5 minutes.
+3. A parent can see today's homework, attendance and notes for their child in 3 clicks or fewer after logging in.
+4. A parent cannot see another child's diary.
+5. A teacher can add a Sport/PE or Food/Lunch note for a pupil in under 60 seconds.
 
 ## Users and roles
 | Role | Can do |
