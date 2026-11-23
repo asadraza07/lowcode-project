@@ -8,4 +8,4 @@ Write a minimal Flask web application in a single file called app.py. Use Flask 
 
 Outcome: Accepted. Ran after I saved app.py properly (my mistake: file was empty at first).Modified: AI only pinned Flask, so I used pip freeze to pin all dependencies.Noted debug=True – OK locally, must not be used in production.
 
-
+Outcome: Rejected. I had already built the Week 1 app in October; this duplicate overwrote it during a merge, so I restored my original app.py and README. Kept: fully pinned requirements.txt (pip freeze) and the extended .gitignore.
