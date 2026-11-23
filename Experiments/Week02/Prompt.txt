@@ -1,0 +1,40 @@
+I have an existing Flask 3.x application running on Python 3.11. Add a contact form to it.
+
+Requirements:
+- A /contact route that accepts GET and POST
+- A template at templates/contact.html with fields: name, email, message
+- Server-side validation (do not rely on browser validation):
+  - name and message must not be empty (reject whitespace-only too)
+  - email must be well-formed
+- On validation failure, re-display the form with a visible error message
+  next to each bad field, and keep what the user typed
+- On success, show a confirmation page (templates/contact_success.html)
+- Store nothing: no database, no file writes, no email sending
+
+Constraints:
+- Use only Flask and the Python standard library (no extra packages)
+- Do not use debug=True
+- No hardcoded secrets
+- All user input must be escaped when displayed (no |safe, no manual HTML strings)
+- Do not modify or remove any existing routes
+
+Output:
+- Return complete files only, not snippets
+- Give the exact filename above each code block
+- Give a requirements.txt with pinned versions (e.g. Flask==3.0.3)
+
+Here is my current app.py:
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello from my first AI app"
+
+@app.route("/about")
+def about():
+    return "In this project I set up Git and an SSH key, created a GitHub repository called lowcode-project, and built a minimal Flask app with two routes, / and /about. I ran it in a virtual environment, installed Flask 3.0.3 from a pinned requirements.txt, and checked it in the browser. I also wrote a README and a .gitignore so the venv folder is not uploaded. I made mistakes along the way, including a typo in requirements.txt and a broken indent in app.py, and I fixed them by reading the error messages. The main thing I learned is that AI-generated code must be checked. A specific prompt gives better results than a vague one, and the README needed corrections to match my real commands. I also noticed that Flask is pinned but its dependencies are not, so pip freeze would make the setup more reproducible. Everything is committed and pushed to GitHub."
+
+if __name__ == "__main__":
+    app.run(port=5000)
