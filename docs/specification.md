@@ -1,4 +1,4 @@
-# School Daily Diary App — Specification
+# MITS School Daily Diary — Specification
 
 Version 1 · Week 3 · Author: Asad Raza
 
@@ -17,16 +17,18 @@ Version 1 · Week 3 · Author: Asad Raza
 ## Users and roles
 | Role | Can do |
 |---|---|
-| Teacher | Post homework for a class; record daily attendance; see their classes |
-| Parent | View the daily diary (homework + attendance) for their own child only |
+| Teacher | Post homework and diary notes for a class or a pupil; record daily attendance; read and hide parent comments |
+| Parent | View the daily diary (homework, attendance, notes) for their own child only; write a short comment on a day's diary |
 
-Students do not have logins.
+Pupils do not have logins. MITS is a primary school, so all pupils are children: this raises the privacy bar (see Security and privacy).
 
 ## Scope for the whole project (Weeks 3–11)
 1. Teachers post homework for a class, optionally with an attached file (file upload from Week 6).
 2. Teachers record daily attendance (present / absent / late) for each student.
-3. Parents log in and see a daily diary for their own child: that day's homework and attendance.
-4. Teacher and parent logins with different permissions (added in a later week).
+3. Teachers add diary notes for a class or a pupil, tagged General, Sport/PE or Food/Lunch (e.g. "PE kit tomorrow", "ate all lunch").
+4. Parents log in and see a daily diary for their own child: that day's homework, attendance and notes.
+5. Parents write a short comment (max 500 characters) on a day's diary; the teacher sees it and can hide it.
+6. Teacher and parent logins with different permissions (added in a later week).
 
 ## Scope for this week (Week 3)
 Homework only, with no login, no file upload and no attendance yet.
@@ -43,7 +45,7 @@ Homework only, with no login, no file upload and no attendance yet.
 - status (one of: draft, published — default draft; parents will only ever see published)
 - created_at (timestamp, set automatically)
 
-Entities planned for Week 5 (not built this week): Class, Student, Parent, AttendanceRecord.
+Entities planned for Week 5 (not built this week): Class, Pupil, Parent, AttendanceRecord, DiaryNote, ParentComment.
 
 ## Routes (this week)
 | Method | Path | Does |
@@ -66,7 +68,8 @@ Entities planned for Week 5 (not built this week): Class, Student, Parent, Atten
 ## Security and privacy requirements
 - A parent must only ever see their own child's diary (enforced when logins are added).
 - Only teachers can create or change homework and attendance (enforced when logins are added).
-- Only made-up test data. No real student, parent or staff information.
+- Parent comments are plain text only, escaped on display, max 500 characters; teachers can hide a comment.
+- Only made-up test data. No real pupil, parent or staff information, because the pupils are children.
 
 ## Technical constraints
 - Python 3.11+, Flask 3.x
@@ -83,5 +86,5 @@ Entities planned for Week 5 (not built this week): Class, Student, Parent, Atten
 - Online fee payments (fees are handled by a CA1 automation instead)
 - Grades, report cards and timetables
 - Student logins
-- Messaging between parents and teachers
+- Chat or message threads (parents can leave one short comment per diary day, nothing more)
 - A mobile app
